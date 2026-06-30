@@ -1,0 +1,6 @@
+customer_id,name,email,city,state,registration_date
+1,Ashish,ashish@gmail.com,Bangalore,Karnataka,2024-01-15
+2,Rahul,rahul@gmail.com,Mumbai,Maharashtra,2024-02-20
+3,Priya,priya@gmail.com,Chennai,Tamil Nadu,2024-03-10
+4,Sneha,sneha@gmail.com,Hyderabad,Telangana,2024-03-25
+5,Amit,amit@gmail.com,Pune,Maharashtra,2024-04-05
