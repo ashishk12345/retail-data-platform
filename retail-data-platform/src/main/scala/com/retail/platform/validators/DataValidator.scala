@@ -1,13 +1,22 @@
 package com.retail.platform.validators
 
-import org.apache.spark.sql.DataFrame
+import com.retail.platform.common.SparkSessionFactory
+import org.apache.spark.sql.{DataFrame, SparkSession}
+import org.apache.spark.sql.functions.col
 
 object DataValidator {
 
-  def validate(df: DataFrame): DataFrame = {
-
-    println(s"Input Record Count: ${df.count()}")
-
-    df
+  private def removeNullCustomerId(df: DataFrame): DataFrame = {
+    df.filter(col("customer_id").isNotNull)
   }
+
+  def validate(df: DataFrame): ValidationResult = {
+
+      val validDF = removeNullCustomerId(df)
+
+      ValidationResult(
+        validDF = validDF,
+        invalidDF = SparkSessionFactory.spark.emptyDataFrame
+      )
+    }
 }
