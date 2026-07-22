@@ -17,7 +17,7 @@ object RetailDataPlatformApp {
     logger.info("Retail Data Platform Started")
 
     val spark = SparkSessionFactory.spark
-    val inputPath = ApplicationConfig.getString("files.customers")
+    val inputPath = ApplicationConfig.getString("paths.input")+ "/" +ApplicationConfig.getString("files.customers")
 
     val validOutputPath =  ApplicationConfig.getString("files.validOutput")
     val invalidOutputPath = ApplicationConfig.getString("files.invalidOutput")

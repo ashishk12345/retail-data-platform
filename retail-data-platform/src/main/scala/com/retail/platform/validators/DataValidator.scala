@@ -1,6 +1,6 @@
 package com.retail.platform.validators
 
-import com.retail.platform.validators.rules.{NullCustomerIdValidator, NullEmailValidator}
+import com.retail.platform.validators.rules.{DuplicateCustomerIdValidator, NullCustomerIdValidator, NullEmailValidator}
 import org.apache.spark.sql.DataFrame
 
 import scala.collection.mutable.ListBuffer
@@ -9,7 +9,8 @@ object DataValidator {
 
   private val validators: Seq[Validator] = Seq(
     NullCustomerIdValidator,
-    NullEmailValidator
+    NullEmailValidator,
+    DuplicateCustomerIdValidator
   )
 
   def validate(df: DataFrame): ValidationResult = {
